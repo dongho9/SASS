@@ -1,0 +1,19 @@
+@charset "utf-8";
+//scss.scss
+
+$color01 : #00f; //변수선언
+$font01 : bold;
+$font-size-title  : 30px;
+$border02 : 1px solid #333;
+
+h2{
+    // 글자색에 변수값 적용
+   color :  $color01;
+   font-size : $font-size-title;
+}
+p{
+    font-weight : $font01;
+}
+ul{
+    border : $border02;
+}
