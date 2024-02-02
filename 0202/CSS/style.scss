@@ -1,0 +1,163 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+$font12 : 12px;
+$title01: 16px;
+$color00: #333;
+$color01: #00f;
+$color02: #f00;
+$color03: #0f0;
+$color04: #ff0;
+$color05: #fff;
+$time : 0.5s;
+h2{
+    font-size: $title01;
+    color: $color01;
+}
+
+@mixin h3txt{
+    font-family: "Noto Sans Kr", "맑은 고딕", arial, sans-serif;
+    font-size: 30px;
+    color: $color02;
+}
+
+@mixin btntxt{
+    padding: 4px 10px;
+    color: $color05;
+    background-color: $color00;
+}
+
+@mixin over_t{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title01{
+    @include h3txt;
+}
+
+.btn1{
+    @include btntxt;
+    background-color: $color02;
+}
+.btn2{
+    @include btntxt;
+    background-color: $color01;
+}
+
+.p01{
+    width: 500px;
+    @include over_t;
+}
+
+@mixin market_b{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    width: 200px;
+    padding: 5px 0px 5px;
+    text-align: center;
+}
+@mixin market_f{
+    color: $color00;
+    font-family: "Noto Sans Kr", "맑은 고딕", arial, sans-serif;
+    font-size: 20px;
+}
+@mixin b_hover{
+    background-color: lavender;
+    color: purple;
+}
+@mixin market_btn{
+    transition: $time;
+    @include market_b;
+    @include market_f;
+}
+
+.btn3{
+    @include market_btn;
+}
+.btn4{
+    @include market_btn;
+}
+.btn3:hover, .btn4:hover{
+    @include b_hover;
+}
+
+.toggle_btn{
+    width: 40px;
+    height: 40px;
+    display: block;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+@mixin bar{
+    position: absolute;
+    display: inline-block;
+    width: 38px;
+    height: 3px;
+    background-color: $color00;
+    transition: $time;
+    left: 1px;
+}
+.bar{
+    @include bar;
+    transition: $time;
+}
+.bar1{
+    top: 5px;
+}
+.bar2{
+    top: 18px;
+}
+.bar3{
+    bottom: 5px;
+}
+
+.toggle{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+// 제이쿼리로 바꾸는 서식
+.rotate45{
+    transform: rotate(45deg);
+    top: 19px;
+}
+.rotate0{
+   display: none;
+}
+.rotate_45{
+    transform: rotate(-45deg);
+    top: 19px;
+}
+
+// css로 토글버튼 바꾸는 서식
+#toggle{
+    // display: none;
+}
+#toggle:checked ~.toggle_btn .bar1{
+    transform: rotate(45deg);
+    top: 19px;
+}
+#toggle:checked ~.toggle_btn .bar2{
+    display: none;
+}
+#toggle:checked ~.toggle_btn .bar3{
+    transform: rotate(-45deg);
+    top: 19px;
+}
+
+i.fab, i.fas{
+    border: 1px solid $color02;
+    padding: 10px;
+    transition: $time;
+}
+i.fab:hover, i.fas:hover{
+    background-color: $color02;
+    color: $color05;
+}
