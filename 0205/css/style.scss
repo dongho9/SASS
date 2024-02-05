@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+$baseFont : "맑은 고딕", arial, sans-serif;
+$baseFontColor : #333;
+$baseFontSize : 12px;
+$bigFontSize : 26px;
+$boxWidth : 1200px;
+$boxCenter : 0px auto;
+$bgColor : #ffff00;
+
+body{
+    font-family: $baseFont;
+    font-size: $baseFontSize;
+    color: $baseFontColor;
+}
+h2, h3{
+    font-size: $bigFontSize;
+}
+#wrap{
+    background-color: $bgColor;
+    width: $boxWidth;
+    margin: $boxCenter;
+}
+
+@mixin divBox($bgColor){
+    width: $boxWidth;
+    background-color: $bgColor;
+}
+#box01, #box02{
+    @include divBox(green);
+}
+
+//box01, box02에 각각 따로 배경색 설정하기
+#box01{
+    @include divBox(blue);
+}
+#box02{
+    @include divBox(red);
+}
+
+@mixin btn($bgColor02){
+    display: block;
+    width: 400px;
+    height: 50px;
+    background-color: $bgColor02;
+    color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.btn{
+    @include btn(green);
+}
+.btn03{
+    @include btn(royalblue);
+}
+.btn04{
+    @include btn(yellowgreen);
+}
+.btn05{
+    @include btn(orange);
+}
+
+// 목록태그에 각각 테두리 서식 다르게 적용하기
+@mixin list_border($w : 1px, $s : solid, $c : #333){
+    border: $w $s $c;
+    margin-bottom: 3px;
+}
+.list01 li{
+    @include list_border;
+}
+.list01 li:nth-child(2){
+    @include list_border(3px, groove, red);
+}
+.list01 li:nth-child(3){
+    @include list_border(3px, double, red);
+}
+.list01 li:last-child{
+    @include list_border(3px, dotted, red)
+}
